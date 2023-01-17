@@ -1,0 +1,151 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "ladies and getlmen we got em / V2.4",
+    LoadingTitle = "Windows Support Hub",
+    LoadingSubtitle = "scriptblox.com",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Windows 69"
+    },
+    Discord = {
+       Enabled = false,
+       Invite = "ABCD", -- The Discord invite code, do not include discord.gg/
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Windows support hub",
+       Subtitle = "are u allowed?",
+       Note = "scriptblox.com",
+       FileName = "SiriusKey",
+       SaveKey = true,
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = "FirstScriptFromWindowsSupport_2911"
+    }
+ })
+
+    local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+    local Section = Tab:CreateSection("Main Stuff")
+
+local Button = Tab:CreateButton({
+   Name = "TP to end 1",
+   Callback = function()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-171, 4864, -57773)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "TP to end 2",
+   Callback = function()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-176, 4868, -71497)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "TP to secret",
+   Callback = function()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43, 5156, -87283)
+   end,
+})
+
+local Button = Tab:CreateButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))();
+    end,
+ })
+
+ local Button = Tab:CreateButton({
+    Name = "Disable Ragdoll / not working and its better having ramps deleted than this",
+    Callback = function()
+      local Ragdoll = gameGetService(Workspace).Player.Ragdoll
+      if Ragdoll then
+          Ragdoll.Enabled = false
+      end   
+    end,
+ })
+
+ local Button = Tab:CreateButton({
+   Name = "DELETE RAMPS FROM SLIDE 1",
+   Callback = function()
+      local folder = game:GetService("Workspace").Slide1.Ramps
+      if folder then
+          folder:Destroy()
+     end   
+   end,
+})
+
+ local Button = Tab:CreateButton({
+   Name = "DELETE BLISTERS FROM SLIDE 2",
+   Callback = function()
+      local folder = game:GetService("Workspace").Slide2.Blisters
+      if folder then
+          folder:Destroy()
+     end   
+   end,
+})
+
+ local Button = Tab:CreateButton({
+   Name = "DELETE RAMPS FROM SLIDE 2",
+   Callback = function()
+      local folder = game:GetService("Workspace").Slide2.Ramps
+      if folder then
+          folder:Destroy()
+     end   
+   end,
+})
+
+    local Tab = Window:CreateTab("AUTOFARM / if your busy tho", 4483362458) -- Title, Image
+    local Section = Tab:CreateSection("Toggles")
+ local Toggle = Tab:CreateToggle({
+   Name = "Auto win",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   local player = game.Players.LocalPlayer
+local toggle = false
+local time1 = 0
+local time2 = 0
+local destination1 = Vector3.new(-176, 4868, -71497) -- replace x, y, and z with the first set of coordinates
+local destination2 = Vector3.new(-120, 4877, -71515) -- replace x, y, and z with the second set of coordinates
+local currentDestination = destination1
+local tween_s = game:GetService("TweenService")
+local info = TweenInfo.new(0, Enum.EasingStyle.Quad) -- Change the number to lower to speed it up and higher to slow it down.
+
+game:GetService("RunService").RenderStepped:Connect(function(delta)
+    if toggle then
+        time1 = time1 + delta
+        time2 = time2 + delta
+        if time1 >= 65 then
+            local cframe = CFrame.new(currentDestination)
+            local tween = tween_s:Create(player.Character.HumanoidRootPart, info, {CFrame = cframe})
+            tween:Play()
+            time1 = 0
+        end
+        if time2 >= 67 then
+            if currentDestination == destination1 then
+                currentDestination = destination2
+            else
+                currentDestination = destination1
+            end
+            time2 = 0
+        end
+    end
+end)
+
+local button = script.Parent -- Assume the script is inside a button
+button.Activated:Connect(function()
+    toggle = not toggle
+    if toggle then
+        button.Text = "Teleport On"
+    else
+        button.Text = "Teleport Off"
+    end
+end)
+
+   end,
+})
+
+Rayfield:LoadConfiguration()
